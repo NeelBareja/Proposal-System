@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-contract ProposalContract {
+contract ProposalSystem {
     // ****************** Data ***********************
 
     address public owner;
@@ -106,11 +106,11 @@ contract ProposalContract {
         return false;
     }
 
-    function getCurrentProposalId() external view returns (uint256) {
-        return counter;
+    function getCurrentProposal() external view returns(Proposal memory) {
+        return proposal_history[counter];
     }
 
-    function getProposal(uint256 id) external view returns (Proposal memory) {
-        return proposal_history[id];
+   function getProposal(uint256 number) external view returns(Proposal memory) {
+        return proposal_history[number];
     }
 }
