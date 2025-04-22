@@ -14,4 +14,11 @@ contract ProposalSystem {
 
     mapping(uint256 => Proposal) proposal_history; // Recordings of previous proposals
 
+    uint256 private counter;
+
+    function create_proposal(string calldata _description, uint256 _total_vote_to_end, string calldata _title) external {
+        counter += 1;
+        proposal_history[counter] = Proposal(_description, 0, 0, 0, _total_vote_to_end, false, true, _title);
+}
+
 }
